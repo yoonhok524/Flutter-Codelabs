@@ -37,14 +37,16 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 Image.asset('assets/diamond.png'),
                 const SizedBox(height: 16.0),
-                const Text('SHRINE'),
+                Text(
+                  'SHRINE',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
               ],
             ),
             const SizedBox(height: 120.0),
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
-                filled: true,
                 labelText: 'Username',
               ),
             ),
@@ -52,7 +54,6 @@ class _LoginPageState extends State<LoginPage> {
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(
-                filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
@@ -62,11 +63,14 @@ class _LoginPageState extends State<LoginPage> {
               alignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                    onPressed: () {
-                      _usernameController.clear();
-                      _passwordController.clear();
-                    },
-                    child: const Text('Cancel')),
+                  onPressed: () {
+                    _usernameController.clear();
+                    _passwordController.clear();
+                  },
+                  child: const Text('Cancel'),
+                  style: TextButton.styleFrom(
+                      foregroundColor: Theme.of(context).colorScheme.secondary),
+                ),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context);

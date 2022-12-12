@@ -32,6 +32,8 @@ class HomePage extends StatelessWidget {
     return products
         .map((product) => Card(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AspectRatio(
                     aspectRatio: 18.0 / 11.0,
@@ -48,13 +50,15 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text(
                           product.name,
-                          style: theme.textTheme.headline6,
+                          style: theme.textTheme.button,
+                          softWrap: false,
+                          overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
                         const SizedBox(height: 8.0),
                         Text(
                           formatter.format(product.price),
-                          style: theme.textTheme.subtitle2,
+                          style: theme.textTheme.caption,
                         ),
                       ],
                     ),
@@ -82,16 +86,13 @@ class HomePage extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.tune))
         ],
       ),
-      // TODO: Add a grid view (102)
       body: GridView.count(
         crossAxisCount: 2,
         padding: const EdgeInsets.all(16.0),
         childAspectRatio: 8.0 / 9.0,
-        // TODO: Build a grid of cards (102)
         children: _buildGridCards(context),
       ),
       resizeToAvoidBottomInset: false,
-      // TODO: Set resizeToAvoidBottomInset (101)
     );
   }
 }

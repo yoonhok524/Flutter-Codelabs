@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
         locale: Localizations.localeOf(context).toString());
     return products
         .map((product) => Card(
+              elevation: 0,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
